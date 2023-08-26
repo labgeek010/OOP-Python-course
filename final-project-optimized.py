@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = "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"
+openai.api_key = "apikey"
 system_rol = '''Behave as you are a feeling analyzer, 
                 I'll pass you feelings and you will analyze the feeling of each message, 
                 and will give me an swer with at least 1 character and as maximum 4 characters, 
@@ -17,6 +17,8 @@ class Feeling:
     
     def __str__(self):
         return "\x1b[1;{}m{}\x1b[0;37m".format(self.color, self.name)
+    
+    ##this class is in charge of representing a feeling and its color
 
     
 class FeelingsAnalyzer:
@@ -28,6 +30,9 @@ class FeelingsAnalyzer:
             if range[0] < polarity <= range[1]:
                 return feeling
         return Feeling("Very Negative", "31")
+    
+    ##this class has the responsibility to map the polarities towards the Feeling class, it defines which will be the feeling
+    ## this class complies with the Open/Close principle as it is open for extensions, since we can add more ranges without editing the code
         
 ranges = [
     ((-0.6,-0.3), Feeling("Negative","31"))

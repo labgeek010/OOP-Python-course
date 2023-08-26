@@ -24,7 +24,7 @@
 
 import openai
 
-openai.api_key = "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"
+openai.api_key = "apikey"
 system_rol = '''Behave as you are a feeling analyzer, 
                 I'll pass you feelings and you will analyze the feeling of each message, 
                 and will give me an swer with at least 1 character and as maximum 4 characters, 
